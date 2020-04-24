@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :purchases
+  resources :users
   resources :seasons
   resources :episodes
   resources :movies
