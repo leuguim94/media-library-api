@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
 
-    render json: @movies.sort_by(&:created_at)
+    render json: @movies
   end
 
   # GET /movies/1

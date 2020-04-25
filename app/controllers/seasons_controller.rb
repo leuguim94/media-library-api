@@ -5,12 +5,12 @@ class SeasonsController < ApplicationController
   def index
     @seasons = Season.all
 
-    render json: @seasons
+    render json: @seasons.to_json(include: :episodes)
   end
 
   # GET /seasons/1
   def show
-    render json: @season
+    render json: @season.to_json(include: :episodes)
   end
 
   # POST /seasons
