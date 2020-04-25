@@ -74,7 +74,7 @@ RSpec.describe "/episodes", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        { title: 'Friends 1x05', number: 5 }
+        { title: 'Breaking Bad 1x05', number: 5 }
       }
 
       it "updates the requested episode" do
@@ -82,7 +82,7 @@ RSpec.describe "/episodes", type: :request do
         patch episode_url(episode),
               params: { episode: new_attributes }, headers: valid_headers, as: :json
         episode.reload
-        expect(episode.title).to eq('Friends 1x05')
+        expect(episode.title).to eq('Breaking Bad 1x05')
       end
 
       it "renders a JSON response with the episode" do

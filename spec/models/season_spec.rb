@@ -6,10 +6,9 @@ RSpec.describe Season, type: :model do
     let!(:season) { create :season }
 
     it 'sets the proper information' do
-      expect(season.title).to eq('Friends')
-      expect(season.plot).to eq('Ross Geller, Rachel Green, Monica Geller, Joey Tribbiani, Chandler Bing, and Phoebe Buffay are six 20 something year olds living in New York City. Over the course of 10 years, these friends go through family, love, drama, friendship, and comedy.')
+      expect(season.title).to eq('Breaking Bad')
+      expect(season.plot).to eq("A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.")
       expect(season.number).to eq 1
-      expect(Season.count).to eq 1
     end
   end
 end
