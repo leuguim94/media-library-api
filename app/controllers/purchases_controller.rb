@@ -46,6 +46,6 @@ class PurchasesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def purchase_params
-      params.require(:purchase).permit(:price, :quality)
+      params.require(:purchase).permit(:price, :quality, :user_id, :movie_id, :season_id)
     end
 end

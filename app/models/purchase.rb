@@ -3,6 +3,8 @@ class Purchase < ApplicationRecord
   belongs_to :movie, required: false
   belongs_to :season, required: false
   
+  validates_presence_of :user, :price, :quality
+
   enum quality: %i(SD HD)
 
   before_create :set_expire_date

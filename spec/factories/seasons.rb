@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :season do
-    title { "Friends" }
-    plot { "Ross Geller, Rachel Green, Monica Geller, Joey Tribbiani, Chandler Bing, and Phoebe Buffay are six 20 something year olds living in New York City. Over the course of 10 years, these friends go through family, love, drama, friendship, and comedy." }
+    title { "Breaking Bad" }
+    plot { "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future." }
     number { 1 }
   end
 end
