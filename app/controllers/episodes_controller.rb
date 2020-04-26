@@ -3,9 +3,11 @@ class EpisodesController < ApplicationController
 
   # GET /episodes
   def index
-    @episodes = Episode.all
+    episodes = Rails.cache.fetch(Episode.maximum(:updated_at)) do
+      Episode.all.to_json
+    end
 
-    render json: @episodes
+    render json: episodes
   end
 
   # GET /episodes/1

@@ -3,9 +3,11 @@ class LibrariesController < ApplicationController
 
   # GET /libraries
   def index
-    @catalogue = (Movie.all + Season.all).sort_by(&:created_at)
+    catalogue = Rails.cache.fetch([Movie.maximum(:updated_at), Season.maximum(:updated_at)].max) do
+      (Movie.all + Season.all).sort_by(&:created_at).to_json
+    end
 
-    render json: @catalogue.to_json
+    render json: catalogue
   end
 
   # GET /libraries/1

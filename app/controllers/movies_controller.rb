@@ -3,9 +3,11 @@ class MoviesController < ApplicationController
 
   # GET /movies
   def index
-    @movies = Movie.all
+    movies = Rails.cache.fetch(Movie.maximum(:updated_at)) do
+      Movie.all.to_json
+    end
 
-    render json: @movies
+    render json: movies
   end
 
   # GET /movies/1

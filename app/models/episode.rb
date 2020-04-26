@@ -1,5 +1,5 @@
 class Episode < ApplicationRecord
-  belongs_to :season
+  belongs_to :season, touch: true
   
   validates_presence_of :title, :number, :season
   validates_uniqueness_of :number, scope: :season_id

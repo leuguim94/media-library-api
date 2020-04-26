@@ -3,9 +3,11 @@ class PurchasesController < ApplicationController
 
   # GET /purchases
   def index
-    @purchases = Purchase.all
+    purchases = Rails.cache.fetch(Purchase.maximum(:updated_at)) do
+      Purchase.all.to_json
+    end
 
-    render json: @purchases
+    render json: purchases
   end
 
   # GET /purchases/1
