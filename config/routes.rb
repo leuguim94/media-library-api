@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :libraries
+  resources :libraries, only: [:index], path: 'catalogue'
   resources :purchases
   resources :users do
     get 'library', on: :member

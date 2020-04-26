@@ -4,8 +4,8 @@ class Purchase < ApplicationRecord
   belongs_to :season, required: false
 
   validates_presence_of :user, :price, :quality
-  validates_uniqueness_of :movie, scope: %i[user], conditions: -> {where('expire_date > ?', DateTime.now)}
-  validates_uniqueness_of :season, scope: %i[user], conditions: -> {where('expire_date > ?', DateTime.now)}
+  validates_uniqueness_of :movie, scope: %i[user], if: -> (purchase) {purchase.movie_id.present?}, conditions: -> {where('expire_date > ?', DateTime.now)}
+  validates_uniqueness_of :season, scope: %i[user], if: -> (purchase) {purchase.season_id.present?}, conditions: -> {where('expire_date > ?', DateTime.now)}
 
   before_create :set_expire_date
 

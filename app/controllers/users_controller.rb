@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    users = Rails.cache.fetch(User.maximum(:updated_at)) do
+    users = Rails.cache.fetch("users_#{User.maximum(:updated_at)}") do
       User.all.to_json
     end
 

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   # GET /movies
   def index
-    movies = Rails.cache.fetch(Movie.maximum(:updated_at)) do
+    movies = Rails.cache.fetch("movies_#{Movie.maximum(:updated_at)}") do
       Movie.all.to_json
     end
 

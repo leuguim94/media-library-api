@@ -3,7 +3,7 @@ class EpisodesController < ApplicationController
 
   # GET /episodes
   def index
-    episodes = Rails.cache.fetch(Episode.maximum(:updated_at)) do
+    episodes = Rails.cache.fetch("episodes_#{Episode.maximum(:updated_at)}") do
       Episode.all.to_json
     end
 

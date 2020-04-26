@@ -3,7 +3,7 @@ class SeasonsController < ApplicationController
 
   # GET /seasons
   def index
-    seasons = Rails.cache.fetch(Season.maximum(:updated_at)) do
+    seasons = Rails.cache.fetch("seasons_#{Season.maximum(:updated_at)}") do
       Season.all.to_json(include: :episodes)
     end
 
