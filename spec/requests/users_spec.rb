@@ -112,4 +112,12 @@ RSpec.describe "/users", type: :request do
       }.to change(User, :count).by(-1)
     end
   end
+
+  describe "GET /library" do
+    it "renders a successful response" do
+      user = User.create! valid_attributes
+      get library_user_url(user), as: :json
+      expect(response).to be_successful
+    end
+  end
 end

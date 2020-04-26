@@ -3,7 +3,7 @@ class LibrariesController < ApplicationController
 
   # GET /libraries
   def index
-    @catalogue = (Movie.all + Season.all).sort_by(&:created_at).reverse
+    @catalogue = (Movie.all + Season.all).sort_by(&:created_at)
 
     render json: @catalogue.to_json
   end

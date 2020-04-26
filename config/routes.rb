@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   resources :libraries
   resources :purchases
-  resources :users
+  resources :users do
+    get 'library', on: :member
+  end
   resources :seasons
   resources :episodes
   resources :movies
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

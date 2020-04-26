@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :library]
 
   # GET /users
   def index
@@ -36,6 +36,13 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+  end
+
+  # GET /users/1/library
+  def library
+    library = @user.purchases.where('expire_date > ?', DateTime.now).sort_by(&:expire_date)
+
+    render json: library.to_json
   end
 
   private
