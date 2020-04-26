@@ -1,7 +1,16 @@
+# == Schema Information
+#
+# Table name: movies
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  plot       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  
   describe 'create' do
     let!(:movie) { create :movie }
 

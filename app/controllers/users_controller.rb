@@ -42,19 +42,22 @@ class UsersController < ApplicationController
 
   # GET /users/1/library
   def library
-    library = @user.purchases.where('expire_date > ?', DateTime.now).sort_by(&:expire_date)
+    library = @user.purchases.where(
+      'expire_date > ?', DateTime.now
+    ).sort_by(&:expire_date)
 
     render json: library.to_json
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:email)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    params.require(:user).permit(:email)
+  end
 end

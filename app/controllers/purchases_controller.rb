@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases
   def index
-    purchases = Rails.cache.fetch("purchases_#{Purchase.maximum(:updated_at)}") do
+    purchases = Rails.cache.fetch("purch_#{Purchase.maximum(:updated_at)}") do
       Purchase.all.to_json
     end
 
@@ -41,13 +41,14 @@ class PurchasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_purchase
-      @purchase = Purchase.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def purchase_params
-      params.require(:purchase).permit(:price, :quality, :user_id, :movie_id, :season_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_purchase
+    @purchase = Purchase.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def purchase_params
+    params.require(:purchase).permit(:price, :quality, :user_id, :movie_id, :season_id)
+  end
 end

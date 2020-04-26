@@ -1,7 +1,20 @@
+# == Schema Information
+#
+# Table name: purchases
+#
+#  id          :integer          not null, primary key
+#  movie_id    :integer
+#  season_id   :integer
+#  user_id     :integer          not null
+#  price       :float            not null
+#  quality     :integer          not null
+#  expire_date :datetime         not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe Purchase, type: :model do
-
   describe 'create' do
     let!(:purchase_movie) { create :purchase_movie }
 

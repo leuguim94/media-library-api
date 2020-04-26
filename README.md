@@ -35,5 +35,5 @@
   
   - Test coverage
   
-![Test Coverage](https://i.ibb.co/c2SWDbg/JSON-REST-API-6.png)
+![Test Coverage](https://i.ibb.co/YQ4D2PM/JSON-REST-API-6.png)
 

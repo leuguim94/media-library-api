@@ -1,8 +1,9 @@
 class LibrariesController < ApplicationController
-
   # GET /libraries
   def index
-    catalogue = Rails.cache.fetch("catalogue_#{[Movie.maximum(:updated_at), Season.maximum(:updated_at)].max}") do
+    catalogue = Rails.cache.fetch(
+      "catalog_#{[Movie.maximum(:updated_at), Season.maximum(:updated_at)].max}"
+    ) do
       (Movie.all + Season.all).sort_by(&:created_at).to_json
     end
 

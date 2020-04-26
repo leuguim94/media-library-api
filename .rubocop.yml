@@ -1,0 +1,46 @@
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Lint/NonDeterministicRequireOrder:
+  Exclude:
+    - 'spec/**/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+Metrics/LineLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'db/seeds.rb'
+    - 'config/**/*'
+Rails/FilePath:
+  Exclude:
+    - 'config/**/*'
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/EndOfLine:
+  Enabled: false
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+Style/IfUnlessModifier:
+  Exclude:
+    - 'spec/**/*'
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/*'
+    - 'app/models/application_record.rb'
+    - 'config/**/*'
+    - 'db/migrate/*'
+Style/SymbolArray:
+  Enabled: false

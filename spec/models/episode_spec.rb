@@ -1,7 +1,18 @@
+# == Schema Information
+#
+# Table name: episodes
+#
+#  id         :integer          not null, primary key
+#  title      :string           not null
+#  plot       :string
+#  number     :integer
+#  season_id  :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe Episode, type: :model do
-
   describe 'create' do
     let!(:episode_1) { create :episode_1 }
 
