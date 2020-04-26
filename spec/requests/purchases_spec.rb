@@ -70,6 +70,19 @@ RSpec.describe "/purchases", type: :request do
         expect(response.content_type).to eq("application/json; charset=utf-8")
       end
     end
+
+    context "multiple times consecutively" do
+      it "fails if it's the same content" do
+        expect {
+          post purchases_url,
+               params: { purchase: valid_attributes }, headers: valid_headers, as: :json
+        }.to change(Purchase, :count).by(1)
+        expect {
+          post purchases_url,
+               params: { purchase: valid_attributes }, headers: valid_headers, as: :json
+        }.to change(Purchase, :count).by(0)
+      end
+    end
   end
 
   describe "PATCH /update" do
