@@ -38,7 +38,6 @@ group :test do
   gem 'simplecov'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'database_cleaner'
 end
 
